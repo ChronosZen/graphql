@@ -90,4 +90,4 @@ const cars = [
     personId: "3",
   },
 ];
-export default { people, cars };
+export default { cars, people };
