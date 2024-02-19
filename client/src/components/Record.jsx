@@ -2,7 +2,7 @@ import { Divider } from "antd";
 import React, { useEffect, useState } from "react";
 import { GET_PEOPLE_WITH_CAR } from "../graphql/queries";
 import { useQuery } from "@apollo/client";
-import PersonDetail from "./PersonDetail";
+import PersonDetail from "./people/PersonDetail";
 
 const Record = ({ peopleArr, setPeopleArr }) => {
   const { loading, error, data } = useQuery(GET_PEOPLE_WITH_CAR);

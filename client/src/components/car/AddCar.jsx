@@ -2,7 +2,7 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { Divider, Form } from "antd";
 import { useEffect, useState } from "react";
-import { ADD_CAR, GET_PEOPLE, GET_PERSON_ID } from "../graphql/queries";
+import { ADD_CAR, GET_PEOPLE, GET_PERSON_ID } from "../../graphql/queries";
 import { useQuery, useLazyQuery } from "@apollo/client";
 import CarForm from "./CarForm";
 

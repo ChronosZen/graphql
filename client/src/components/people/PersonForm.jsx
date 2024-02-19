@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, Flex, Form, Space } from "antd";
-import SubmitButton from "./SubmitButton";
+import SubmitButton from "../SubmitButton";
 const PersonForm = ({
   form,
   onFinish,
@@ -13,7 +13,10 @@ const PersonForm = ({
   return (
     <Form
       initialValues={initialValues}
-      onFinish={() => onFinish()}
+      onFinish={() => {
+        onFinish();
+        form.resetFields();
+      }}
       form={form}
       name={name}
       layout="horizontal"

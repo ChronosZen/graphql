@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, Select, Flex, Form, Space, InputNumber } from "antd";
-import SubmitButton from "./SubmitButton";
+import SubmitButton from "../SubmitButton";
 
 const CarForm = ({
   form,
@@ -23,7 +23,10 @@ const CarForm = ({
       name={name}
       layout="horizontal"
       autoComplete="off"
-      onFinish={(e) => onFinish(e)}>
+      onFinish={(e) => {
+        onFinish(e);
+        form.resetFields();
+      }}>
       <Flex justify={"center"} align={"center"} gap={"small"}>
         <Form.Item
           name="year"

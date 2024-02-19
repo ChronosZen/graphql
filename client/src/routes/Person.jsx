@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router";
 import { GET_PERSON_ID } from "../graphql/queries";
 import { useQuery } from "@apollo/client";
-import PersonDetail from "../components/PersonDetail";
-import EditModal from "../components/EditPerson";
+import PersonDetail from "../components/people/PersonDetail";
+import EditModal from "../components/people/EditPerson";
 const Person = () => {
   let { id } = useParams();
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { Divider, Form } from "antd";
-import { ADD_PERSON, GET_PEOPLE_WITH_CAR } from "../graphql/queries";
+import { ADD_PERSON, GET_PEOPLE_WITH_CAR } from "../../graphql/queries";
 
 import PersonForm from "./PersonForm";
 

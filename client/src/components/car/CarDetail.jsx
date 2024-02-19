@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { GET_PEOPLE_WITH_CAR, DELETE_CAR } from "../graphql/queries";
+import { GET_PEOPLE_WITH_CAR, DELETE_CAR } from "../../graphql/queries";
 
 import { useMutation } from "@apollo/client";
 

@@ -1,25 +1,22 @@
 import React from "react";
 import { useState } from "react";
 import { Form, Modal } from "antd";
+import PersonForm from "./PersonForm";
 import { useMutation } from "@apollo/client";
-import { UPDATE_CAR } from "../graphql/queries";
-import CarForm from "./CarForm";
+import { UPDATE_PERSON } from "../../graphql/queries";
 
-const EditCar = ({ open, setOpen, id, year, make, model, price, personId }) => {
+const EditPerson = ({ open, setOpen, firstName, lastName, id }) => {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [form] = Form.useForm();
-  const [updateCar] = useMutation(UPDATE_CAR);
+  const [updatePerson] = useMutation(UPDATE_PERSON);
   const onFinish = () => {
-    const { year, make, model, price, personId } = form.getFieldsValue();
-    updateCar({
+    const { firstName, lastName } = form.getFieldsValue();
+    updatePerson({
       variables: {
         id,
         edits: {
-          year,
-          make,
-          model,
-          price,
-          personId,
+          firstName,
+          lastName,
         },
       },
     })
@@ -27,7 +24,7 @@ const EditCar = ({ open, setOpen, id, year, make, model, price, personId }) => {
         setOpen(false);
       })
       .catch((error) => {
-        console.error("Error updating car", error);
+        console.error("Error updating person", error);
       })
       .finally(() => {
         setConfirmLoading(false);
@@ -40,26 +37,22 @@ const EditCar = ({ open, setOpen, id, year, make, model, price, personId }) => {
   return (
     <>
       <Modal
-        width={1200}
-        title="Edit Car"
+        title="Edit Person"
         open={open}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
         footer={null}>
-        <CarForm
+        <PersonForm
           form={form}
-          year={year}
-          make={make}
-          model={model}
-          price={price}
-          personId={personId}
+          firstName={firstName}
+          lastName={lastName}
           addFlag={false}
           onFinish={onFinish}
-          name={make + model + id}
+          name={firstName + id}
         />
       </Modal>
     </>
   );
 };
 
-export default EditCar;
+export default EditPerson;

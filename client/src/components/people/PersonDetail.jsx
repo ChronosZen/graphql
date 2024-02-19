@@ -6,12 +6,10 @@ import {
   GET_PEOPLE_WITH_CAR,
   DELETE_PERSON,
   DELETE_CAR,
-} from "../graphql/queries";
-
+} from "../../graphql/queries";
 import { useMutation } from "@apollo/client";
 import EditPerson from "./EditPerson";
-import EditCar from "./EditCar";
-import CarDetail from "./CarDetail";
+import CarDetail from "../car/CarDetail";
 const PersonDetail = ({ person, data, detailFlag = true }) => {
   const [deletePerson] = useMutation(DELETE_PERSON);
   const [deleteCar] = useMutation(DELETE_CAR);

@@ -2,8 +2,8 @@ import React from "react";
 
 import { Typography, Divider } from "antd";
 
-import AddPerson from "./AddPerson";
-import AddCar from "./AddCar";
+import AddPerson from "./people/AddPerson";
+import AddCar from "./car/AddCar";
 
 const { Title } = Typography;
 
