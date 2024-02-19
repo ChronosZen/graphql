@@ -6,6 +6,7 @@ import { GET_PEOPLE_WITH_CAR, DELETE_CAR } from "../../graphql/queries";
 import { useMutation } from "@apollo/client";
 
 import EditCar from "./EditCar";
+import { USDollar } from "../utils/currencyFormatting";
 const CarDetail = ({ car, detailFlag, person, data }) => {
   const [deleteCar] = useMutation(DELETE_CAR);
   const [openCar, setOpenCar] = useState(false);
@@ -21,7 +22,15 @@ const CarDetail = ({ car, detailFlag, person, data }) => {
         marginBottom: "8px",
       }}
       type="inner"
-      title={car.year + " " + car.make + " " + car.model + " -> $" + car.price}
+      title={
+        car.year +
+        " " +
+        car.make +
+        " " +
+        car.model +
+        " -> " +
+        USDollar.format(car.price)
+      }
       actions={
         detailFlag
           ? [
