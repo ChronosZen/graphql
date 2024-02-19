@@ -7,7 +7,7 @@ import AddCar from "./AddCar";
 
 const { Title } = Typography;
 
-const Header = () => {
+const Header = ({ peopleArr }) => {
   return (
     <header className="App-header">
       <Title level={2} style={{ textAlign: "center" }}>
@@ -15,7 +15,7 @@ const Header = () => {
       </Title>
       <Divider />
       <AddPerson />
-      <AddCar />
+      {peopleArr.length > 0 && <AddCar />}
     </header>
   );
 };

@@ -1,32 +1,18 @@
 import Record from "./components/Record";
 import Header from "./components/Header";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
-const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
-  cache: new InMemoryCache({
-    typePolicies: {
-      Query: {
-        fields: {
-          people: {
-            merge(existing = [], incoming) {
-              return [...incoming];
-            },
-          },
-        },
-      },
-    },
-  }),
-});
+import { useState } from "react";
+import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 
+loadDevMessages();
+loadErrorMessages();
 function App() {
+  const [peopleArr, setPeopleArr] = useState([]);
   return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <Header />
-        <Record />
-      </div>
-    </ApolloProvider>
+    <div className="App">
+      <Header peopleArr={peopleArr} />
+      <Record peopleArr={peopleArr} setPeopleArr={setPeopleArr} />
+    </div>
   );
 }
 

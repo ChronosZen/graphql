@@ -38,6 +38,7 @@ export const GET_PERSON_ID = gql`
         make
         model
         price
+        personId
       }
     }
   }
@@ -49,12 +50,29 @@ export const ADD_PERSON = gql`
       id
       firstName
       lastName
+      cars {
+        id
+        year
+        make
+        model
+        price
+        personId
+      }
     }
   }
 `;
 export const DELETE_PERSON = gql`
   mutation DeletePerson($id: ID!) {
     deletePerson(id: $id) {
+      id
+      firstName
+      lastName
+    }
+  }
+`;
+export const UPDATE_PERSON = gql`
+  mutation UpdatePerson($id: ID!, $edits: EditPersonInput!) {
+    updatePerson(id: $id, edits: $edits) {
       id
       firstName
       lastName
@@ -88,6 +106,18 @@ export const ADD_CAR = gql`
 export const DELETE_CAR = gql`
   mutation DeleteCar($id: ID!) {
     deleteCar(id: $id) {
+      id
+      year
+      model
+      make
+      price
+      personId
+    }
+  }
+`;
+export const UPDATE_CAR = gql`
+  mutation UpdateCar($id: ID!, $edits: EditCarInput!) {
+    updateCar(id: $id, edits: $edits) {
       id
       year
       model
